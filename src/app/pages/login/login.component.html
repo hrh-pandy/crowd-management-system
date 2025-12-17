@@ -1,0 +1,52 @@
+<!-- 
+<div class="login">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <input formControlName="email" placeholder="Email">
+    <input type="password" formControlName="password" placeholder="Password">
+    <button type="submit">{{loading?'Please wait':'Login'}}</button>
+  </form>
+</div> -->
+
+<div class="login-page">
+  <!-- Background overlay -->
+  <div class="overlay"></div>
+
+  <!-- Left content -->
+  <div class="left-content">
+    <h1>Welcome to the<br />Crowd Management System</h1>
+  </div>
+
+  <!-- Right login card -->
+  <div class="login-card">
+    <div class="card-header">
+      <!-- <img src="assets/kloudspot-logo.svg" alt="Kloudspot" /> -->
+      <img src="/assets/images/logo.png" alt="Kloudspot" />
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <label>Log In *</label>
+      <input
+        type="text"
+        placeholder="Parking_solutions"
+        formControlName="email"
+      />
+
+      <label>Password *</label>
+      <div class="password-box">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="********"
+          formControlName="password"
+        />
+        <span class="eye" (click)="showPassword = !showPassword"> 👁 </span>
+      </div>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? "Logging in..." : "Login" }}
+      </button>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+    </form>
+  </div>
+</div>

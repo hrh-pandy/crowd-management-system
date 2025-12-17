@@ -1,0 +1,127 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.login-page {
+  height: 100vh;
+ background: url('/assets/images/assetsoffice-bg.png') no-repeat center center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  position: fixed;  
+  top: 0;           
+  left: 0;          
+  right: 0;         
+  bottom: 0;        
+  overflow: hidden; 
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* LEFT TEXT */
+.left-content {
+  z-index: 2;
+  color: #fff;
+  max-width: 500px;
+}
+
+.left-content h1 {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* LOGIN CARD */
+.login-card {
+  z-index: 2;
+  width: 380px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #0f766e, #115e59);
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  margin: -25px -25px 20px -25px;
+}
+
+.card-header img {
+  height: 30px;
+}
+
+/* FORM */
+label {
+  font-size: 13px;
+  color: #555;
+  margin-top: 12px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.password-box {
+  position: relative;
+}
+
+.password-box .eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #0d9488;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .login-page {
+    justify-content: center;
+  }
+
+  .left-content {
+    display: none;
+  }
+}

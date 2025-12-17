@@ -1,0 +1,35 @@
+<div class="analytics-filters">
+
+  <!-- SITE FILTER -->
+  <label>Site</label>
+  <select
+    (change)="onSiteChange($event.target.value)"
+  >
+    <option value="">Select Site</option>
+
+    <option
+      *ngFor="let site of sites"
+      [value]="site.siteId"
+    >
+      {{ site.name }} • {{ site.timezone }}
+    </option>
+  </select>
+
+  <!-- DAY FILTER -->
+  <div class="day-filters">
+    <button
+      [class.active]="selectedDay === 'today'"
+      (click)="onDayChange('today')"
+    >
+      Today
+    </button>
+
+    <button
+      [class.active]="selectedDay === 'yesterday'"
+      (click)="onDayChange('yesterday')"
+    >
+      Yesterday
+    </button>
+  </div>
+
+</div>

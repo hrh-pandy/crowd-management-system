@@ -1,1 +1,0 @@
-{"ast":null,"code":"export function getTodayUtcRange() {\n  const now = new Date();\n  const startOfDay = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));\n  return {\n    fromUtc: startOfDay.getTime(),\n    toUtc: now.getTime()\n  };\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

@@ -26,7 +26,7 @@ html, body {
   background: rgba(0, 0, 0, 0.45);
 }
 
-/* LEFT TEXT */
+
 .left-content {
   z-index: 2;
   color: #fff;
@@ -39,7 +39,7 @@ html, body {
   line-height: 1.2;
 }
 
-/* LOGIN CARD */
+
 .login-card {
   z-index: 2;
   width: 380px;
@@ -61,7 +61,7 @@ html, body {
   height: 30px;
 }
 
-/* FORM */
+
 label {
   font-size: 13px;
   color: #555;
@@ -115,7 +115,7 @@ button:disabled {
   margin-top: 10px;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 900px) {
   .login-page {
     justify-content: center;

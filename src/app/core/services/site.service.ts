@@ -133,7 +133,7 @@ export class SiteService {
       }
     ];
     return of(mockSites);
-    // return this.http.get<any[]>(`${environment.apiUrl}/sites`);
+    
   }
 }
 

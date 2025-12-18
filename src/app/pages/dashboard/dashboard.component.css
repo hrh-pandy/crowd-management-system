@@ -1,74 +1,10 @@
-/* .dashboard-layout {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 240px;
-  background: linear-gradient(180deg, #0f766e, #064e3b);
-  color: #fff;
-  padding: 20px;
-}
-
-.sidebar .logo {
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.sidebar nav a {
-  display: block;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.sidebar nav a.active {
-  background: rgba(255,255,255,0.2);
-}
-
-.main {
-  flex: 1;
-  background: #f5f7fb;
-  padding: 20px;
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.card h2 {
-  margin: 10px 0;
-}
-
-.up { color: green; font-size: 12px; }
-.down { color: red; font-size: 12px; }
-
-.chart-card {
-  margin-top: 25px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-} */
 
 
 
-/* LOADER OVERLAY */
+
+
+
+
 .dashboard-loader {
   position: fixed;
   top: 0;
@@ -104,7 +40,7 @@
   margin: 0;
 }
 
-/* LAYOUT */
+
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
@@ -135,13 +71,13 @@
   color: #fff;
 }
 
-/* MAIN */
+
 .main {
   flex: 1;
   padding: 24px 32px;
 }
 
-/* TOP BAR */
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -149,7 +85,7 @@
   margin-bottom: 24px;
 }
 
-/* KPI */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -174,7 +110,7 @@
   color: #dc2626;
 }
 
-/* CHARTS */
+
 .chart-section {
   margin-top: 32px;
 }
@@ -189,7 +125,7 @@
   height: 280px;
 }
 
-/* DEMOGRAPHICS */
+
 .demographics-section {
   margin-top: 40px;
 }
@@ -252,7 +188,7 @@
   background: #bfe5e1;
 }
 
-/* CANVAS */
+
 canvas {
   width: 100% !important;
   height: 100% !important;
@@ -270,7 +206,7 @@ canvas {
   gap: 24px;
 }
 
-/* CARD */
+
 .demo-card {
   background: #ffffff;
   border-radius: 14px;
@@ -282,7 +218,7 @@ canvas {
   padding: 24px;
 }
 
-/* DONUT */
+
 .donut-wrapper {
   position: relative;
   width: 260px;
@@ -314,7 +250,7 @@ canvas {
   margin: 0;
 }
 
-/* LEGEND */
+
 .legend {
   display: flex;
   justify-content: center;
@@ -342,7 +278,7 @@ canvas {
   background: #bfe5e1;
 }
 
-/* RIGHT LINE CHART */
+
 .chart-container {
   height: 260px;
 }

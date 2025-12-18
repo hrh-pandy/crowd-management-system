@@ -4,10 +4,10 @@
   background: #f8fafc;
 }
 
-/* Sidebar */
+
 .sidebar {
   width: 220px;
-  background: #0f172a;
+  background: #223334;
   color: #fff;
   padding: 20px;
   display: flex;
@@ -46,7 +46,7 @@
   background: rgba(13, 148, 136, 0.2);
 }
 
-/* Sidebar Footer - Logout */
+
 .sidebar-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
@@ -78,7 +78,7 @@
   flex-shrink: 0;
 }
 
-/* Main */
+
 .main {
   flex: 1;
   display: flex;
@@ -86,7 +86,7 @@
   background: #f5f7fb;
 }
 
-/* Header */
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -107,7 +107,7 @@
   width: 250px;
 }
 
-/* Content */
+
 .content {
   padding: 20px;
   flex: 1;

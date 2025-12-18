@@ -1,9 +1,9 @@
-/* Layout */
+
 .entries-layout {
   padding: 24px;
 }
 
-/* Card */
+
 .table-card {
   background: #fff;
   border-radius: 14px;
@@ -12,7 +12,7 @@
   position: relative;
 }
 
-/* LOADER STYLES */
+
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
   margin: 0;
 }
 
-/* Table */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -64,7 +64,7 @@ th {
   font-weight: 600;
 }
 
-/* Table rows */
+
 tbody tr:last-child {
   border-bottom: none;
 }
@@ -73,7 +73,7 @@ tbody tr:hover {
   background-color: #f9fafb;
 }
 
-/* Empty state */
+
 .empty {
   text-align: center;
   color: #777;
@@ -81,7 +81,7 @@ tbody tr:hover {
   font-style: italic;
 }
 
-/* Pagination */
+
 .pagination {
   display: flex;
   justify-content: center;

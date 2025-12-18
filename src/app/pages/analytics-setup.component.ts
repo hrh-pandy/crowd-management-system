@@ -1,44 +1,4 @@
-// import { Component } from '@angular/core';
-// import { AnalyticsContextService } from '../core/services/analytics-context.service';
-// import { getDayRangeUtc } from '../core/services/utils/date-utils';
 
-// @Component({
-//   selector: 'app-analytics-setup',
-//   templateUrl: './analytics-setup.component.html'
-// })
-// export class AnalyticsSetupComponent {
-
-//   selectedSite: any;
-//   selectedDay: 'today' | 'yesterday' = 'today';
-
-//   constructor(private context: AnalyticsContextService) {}
-
-//   onSiteSelected(site: any) {
-//     this.selectedSite = site;
-//     this.updateContext();
-//   }
-
-//   onDayChange(day: 'today' | 'yesterday') {
-//     this.selectedDay = day;
-//     this.updateContext();
-//   }
-
-//   private updateContext() {
-//     if (!this.selectedSite) return;
-
-//     const { fromUtc, toUtc } = getDayRangeUtc(
-//       this.selectedSite.timezone,
-//       this.selectedDay
-//     );
-
-//     this.context.setContext({
-//       siteId: this.selectedSite.id,
-//       timezone: this.selectedSite.timezone,
-//       fromUtc,
-//       toUtc
-//     });
-//   }
-// }
 
 
 import { Component, OnInit } from '@angular/core';
@@ -68,7 +28,6 @@ export class AnalyticsFilterComponent implements OnInit {
     this.siteService.getSites().subscribe(res => {
       this.sites = res;
 
-      // set default site
       this.onSiteChange(this.sites[0]);
     });
   }

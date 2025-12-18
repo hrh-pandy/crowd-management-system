@@ -120,13 +120,13 @@
 
 <div class="table-card">
   
-  <!-- LOADER -->
+
   <div *ngIf="loading" class="loader-container">
     <div class="spinner"></div>
     <p>Loading entries...</p>
   </div>
 
-  <!-- TABLE (hidden while loading) -->
+ 
   <div *ngIf="!loading">
     <table>
       <thead>
@@ -154,7 +154,7 @@
       </tbody>
     </table>
 
-    <!-- SIMPLE PAGINATION WITH PREV/NEXT ONLY -->
+   
     <div class="pagination" *ngIf="totalPages > 0">
       <button 
         (click)="prevPage()" 

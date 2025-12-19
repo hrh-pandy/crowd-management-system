@@ -1,4 +1,4 @@
-.dashboard-layout {
+/* .dashboard-layout {
   display: flex;
   min-height: 100vh;
   background: #f8fafc;
@@ -112,4 +112,279 @@
   padding: 20px;
   flex: 1;
   overflow-y: auto;
+} */
+
+
+
+
+
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  background: #f8fafc;
+  overflow: hidden; /* 🚫 prevent double scroll */
 }
+
+/* ================= SIDEBAR (FIXED) ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100vh;
+  background: #223334;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+   /* Gradient + pattern look */
+  background:
+    linear-gradient(180deg, #1f2f2f 0%, #0f4f4b 100%);
+  background-image:
+    linear-gradient(180deg, #1f2f2f 0%, #0f4f4b 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.sidebar nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  color: #fff;
+  font-weight: 600;
+  background: rgba(13, 148, 136, 0.2);
+}
+
+/* ===== LOGOUT FIX ===== */
+.sidebar-footer {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #cbd5e1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+/* ================= MAIN AREA ================= */
+.main {
+  margin-left: 220px; /* 👈 space for fixed sidebar */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f7fb;
+}
+
+
+/* ================= TOPBAR (FIXED + SHORTER) ================= */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 220px;
+  right: 0;
+  height: 56px; /* ✅ reduced height */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
+}
+
+.topbar h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.topbar select {
+  height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 240px;
+}
+
+
+/* ===== PAGE CONTENT (ONLY THIS SCROLLS) ===== */
+.content {
+  margin-top: 56px; /* 👈 space for fixed topbar */
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= TOPBAR LEFT / RIGHT ================= */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Shift content slightly left */
+.topbar-left h2 {
+  margin-right: 8px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ================= ALERT ICON ================= */
+.alert-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #374151;
+}
+
+.alert-btn:hover {
+  background: #f3f4f6;
+}
+
+/* Red notification dot */
+.alert-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+}
+
+
+
+/* ================= TOPBAR RIGHT SIDE ================= */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===== Language Button ===== */
+.lang-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: #e6f6f5;
+  color: #0d9488;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== Alert Button ===== */
+.alert-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #374151;
+}
+
+.alert-btn:hover {
+  background: #f3f4f6;
+}
+
+.alert-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+}
+
+/* ===== User Avatar ===== */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+

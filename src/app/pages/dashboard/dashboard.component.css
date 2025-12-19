@@ -282,3 +282,29 @@ canvas {
 .chart-container {
   height: 260px;
 }
+
+/* ================= OVERALL OCCUPANCY – FIGMA MATCH ================= */
+
+.occupancy-card {
+  padding: 0;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.occupancy-chart-inner {
+  height: 320px; /* Matches Figma proportions */
+  padding: 24px 28px 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure chart never stretches weirdly */
+.occupancy-chart-inner canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.occupancy-chart-inner canvas {
+  cursor: crosshair;
+}
+

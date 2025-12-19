@@ -1,4 +1,4 @@
-
+<!-- 
 <div *ngIf="loading" class="dashboard-loader">
   <div class="spinner"></div>
   <p>Loading dashboard...</p>
@@ -69,4 +69,91 @@
       </div>
     </div>
   </section>
+</section> -->
+
+
+<!-- Loader -->
+<div *ngIf="loading" class="dashboard-loader">
+  <div class="spinner"></div>
+  <p>Loading dashboard...</p>
+</div>
+
+<!-- ================= OVERVIEW ================= -->
+<section class="overview">
+  <h2>Overview</h2>
+
+  <div class="cards">
+    <div class="card">
+      <p>Live Occupancy</p>
+      <h2>{{ liveOccupancy }}</h2>
+      <span>↗ 10% More than yesterday</span>
+    </div>
+
+    <div class="card">
+      <p>Today's Footfall</p>
+      <h2>{{ footfall }}</h2>
+      <span>↘ 10% Less than yesterday</span>
+    </div>
+
+    <div class="card">
+      <p>Avg Dwell Time</p>
+      <h2>{{ avgDwellTime }}</h2>
+      <span>↗ 6% More than yesterday</span>
+    </div>
+  </div>
 </section>
+
+<!-- ================= OVERALL OCCUPANCY (FIXED) ================= -->
+<section class="chart-section">
+  <h3>Overall Occupancy</h3>
+
+  <!-- NEW inner wrapper ONLY for styling -->
+  <div class="chart-card occupancy-card">
+    <div class="occupancy-chart-inner">
+      <canvas #occupancyChart></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEMOGRAPHICS ================= -->
+<section class="demographics-section">
+  <h3>Demographics</h3>
+
+  <div class="demographics-grid">
+
+    <div class="demo-card">
+      <h4>Chart of Demographics</h4>
+
+      <div class="donut-wrapper">
+        <canvas #demographicsChart></canvas>
+
+        <div class="donut-center">
+          <p>Total Crowd</p>
+          <h2>100%</h2>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="dot male"></span>
+          <span><strong>55%</strong> Males</span>
+        </div>
+
+        <div class="legend-item">
+          <span class="dot female"></span>
+          <span><strong>45%</strong> Females</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-card wide">
+      <h4>Demographics Analysis</h4>
+
+      <div class="chart-container">
+        <canvas #demographicsLineChart></canvas>
+      </div>
+    </div>
+
+  </div>
+</section>
+

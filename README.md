@@ -4,7 +4,7 @@ A web-based **Crowd Management & Analytics Dashboard** built with **Angular**, d
 
 ---
 
-## 📌 Features
+## 📌 Features 
 
 ### 📊 Dashboard Analytics
 - ✅ Live occupancy tracking

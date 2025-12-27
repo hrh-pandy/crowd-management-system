@@ -122,7 +122,7 @@
   display: flex;
   height: 100vh;
   background: #f8fafc;
-  overflow: hidden; /* 🚫 prevent double scroll */
+  overflow: hidden;
 }
 
 /* ================= SIDEBAR (FIXED) ================= */
@@ -139,7 +139,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-   /* Gradient + pattern look */
+
   background:
     linear-gradient(180deg, #1f2f2f 0%, #0f4f4b 100%);
   background-image:
@@ -220,7 +220,7 @@
 }
 /* ================= MAIN AREA ================= */
 .main {
-  margin-left: 220px; /* 👈 space for fixed sidebar */
+  margin-left: 220px; 
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -229,18 +229,18 @@
 }
 
 
-/* ================= TOPBAR (FIXED + SHORTER) ================= */
+/* ================= TOPBAR  ================= */
 .topbar {
   position: fixed;
   top: 0;
-  left: 220px;
   right: 0;
-  height: 56px; /* ✅ reduced height */
+  left: 220px;
+  height: 56px; 
   padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: #ffffff;
+  justify-content: space-between;
   border-bottom: 1px solid #e5e7eb;
   z-index: 10;
 }
@@ -253,32 +253,20 @@
 .topbar select {
   height: 36px;
   padding: 6px 10px;
-  border: 1px solid #d1d5db;
+  border: 1px solid green;
   border-radius: 6px;
   font-size: 14px;
   width: 240px;
 }
 
 
-/* ===== PAGE CONTENT (ONLY THIS SCROLLS) ===== */
+
 .content {
-  margin-top: 56px; /* 👈 space for fixed topbar */
+  margin-top: 56px; 
   padding: 20px;
   overflow-y: auto;
   height: calc(100vh - 56px);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -289,7 +277,7 @@
   gap: 16px;
 }
 
-/* Shift content slightly left */
+
 .topbar-left h2 {
   margin-right: 8px;
 }
@@ -314,7 +302,7 @@
   background: #f3f4f6;
 }
 
-/* Red notification dot */
+
 .alert-dot {
   position: absolute;
   top: 4px;

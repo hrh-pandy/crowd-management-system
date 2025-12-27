@@ -539,7 +539,7 @@ const liveLinePlugin = {
   id: 'liveLine',
   afterDatasetsDraw(chart: any) {
 
-    // 🚫 DO NOT draw on non-line charts (pie / doughnut)
+    
     if (chart.config.type !== 'line') return;
 
     const { ctx, chartArea } = chart;
@@ -758,7 +758,7 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
           backgroundColor: gradient,
           fill: true,
 
-          // 🔥 SUPER SMOOTH CURVES
+       
           tension: 0.6,
           cubicInterpolationMode: 'monotone',
 
@@ -817,7 +817,7 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
           },
           border: {
             display: false,
-            dash: [4, 4] // ✅ CORRECT PLACE
+            dash: [4, 4] 
           },
           ticks: {
             color: '#6b7280'
@@ -826,7 +826,7 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
             display: true,
             text: 'Time',
             color: '#111827',
-            font: { weight: 600 } // ✅ NUMBER
+            font: { weight: 600 } 
           }
         },
 
@@ -839,7 +839,7 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
           },
           border: {
             display: false,
-            dash: [4, 4] // ✅ CORRECT PLACE
+            dash: [4, 4] 
           },
           ticks: {
             color: '#6b7280'
@@ -848,7 +848,7 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
             display: true,
             text: 'Count',
             color: '#111827',
-            font: { weight: 600 } // ✅ NUMBER
+            font: { weight: 600 } 
           }
         }
       }
@@ -864,43 +864,87 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
 
 
  
+  // loadDemographics() {
+  //   this.dashboardService.getDemographics().subscribe(res => {
+  //     if (!res) {
+  //       this.checkAllLoaded();
+  //       return;
+  //     }
+
+  //     const values = Object.values(res) as number[];
+
+  //     this.demographicsChart?.destroy();
+
+  //     this.demographicsChart = new Chart(
+  //       this.demographicsCanvas.nativeElement,
+  //       {
+  //         type: 'doughnut',
+  //         data: {
+  //           labels: ['Male', 'Female'],
+  //           datasets: [{
+  //             data: values,
+  //             backgroundColor: ['#7fb6b2', '#bfe5e1'],
+  //             borderWidth: 6,
+  //             borderColor: '#ffffff'
+  //           }]
+  //         },
+  //         options: {
+  //           cutout: '75%',
+  //           responsive: true,
+  //           plugins: {
+  //             legend: { display: false }
+  //           }
+  //         }
+  //       }
+  //     );
+      
+  //     this.checkAllLoaded();
+  //   });
+  // }
+
   loadDemographics() {
-    this.dashboardService.getDemographics().subscribe(res => {
-      if (!res) {
-        this.checkAllLoaded();
-        return;
-      }
+  this.dashboardService.getDemographics().subscribe(res => {
+    if (!res) {
+      this.checkAllLoaded();
+      return;
+    }
 
-      const values = Object.values(res) as number[];
 
-      this.demographicsChart?.destroy();
+    const maleValue = res.male ?? 55; 
+    const femaleValue = res.female ?? 45;
+    const values = [maleValue, femaleValue];
 
-      this.demographicsChart = new Chart(
-        this.demographicsCanvas.nativeElement,
-        {
-          type: 'doughnut',
-          data: {
-            labels: ['Male', 'Female'],
-            datasets: [{
-              data: values,
-              backgroundColor: ['#7fb6b2', '#bfe5e1'],
-              borderWidth: 6,
-              borderColor: '#ffffff'
-            }]
-          },
-          options: {
-            cutout: '75%',
-            responsive: true,
-            plugins: {
-              legend: { display: false }
-            }
+    this.demographicsChart?.destroy();
+
+    this.demographicsChart = new Chart(
+      this.demographicsCanvas.nativeElement,
+      {
+        type: 'doughnut',
+        data: {
+          labels: ['Male', 'Female'],
+          datasets: [{
+            data: values, 
+            backgroundColor: ['#7fb6b2', '#bfe5e1'],
+            borderWidth: 6,
+            borderColor: '#ffffff',
+            hoverOffset: 4 
+          }]
+        },
+        options: {
+          cutout: '75%',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: true }
           }
         }
-      );
-      
-      this.checkAllLoaded();
-    });
-  }
+      }
+    );
+    
+    this.checkAllLoaded();
+  });
+}
 
 
   renderDemographicsLineChart() {
@@ -967,7 +1011,7 @@ options: {
       grid: { color: '#eef2f3' }
     }
   }
-},  // ✅ THIS COMMA IS MANDATORY
+},  
 
 plugins: [liveLinePlugin]
 

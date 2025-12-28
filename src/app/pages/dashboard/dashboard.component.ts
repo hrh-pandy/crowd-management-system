@@ -947,77 +947,202 @@ renderOccupancyChart(labels: string[], values: (number | null)[]) {
 }
 
 
-  renderDemographicsLineChart() {
-    if (!this.demographicsLineCanvas) return;
+//   renderDemographicsLineChart() {
+//     if (!this.demographicsLineCanvas) return;
 
-    this.demographicsLineChart?.destroy();
+//     this.demographicsLineChart?.destroy();
 
-    this.demographicsLineChart = new Chart(
-      this.demographicsLineCanvas.nativeElement,
-      {
-        type: 'line',
-        data: {
-          labels: [
-            '08:00','09:00','10:00','11:00','12:00',
-            '13:00','14:00','15:00','16:00','17:00','18:00'
-          ],
-          datasets: [
-            {
-              label: 'Male',
-              data: [180,182,185,188,195,198,192,200,205,202,210],
-              borderColor: '#7fb6b2',
-              backgroundColor: 'rgba(127,182,178,0.12)',
-              tension: 0.4,
-              fill: true
-            },
-            {
-              label: 'Female',
-              data: [135,138,140,142,147,149,145,150,152,150,158],
-              borderColor: '#bfe5e1',
-              backgroundColor: 'rgba(191,229,225,0.18)',
-              tension: 0.4,
-              fill: true
-            }
-          ]
+//     this.demographicsLineChart = new Chart(
+//       this.demographicsLineCanvas.nativeElement,
+//       {
+//         type: 'line',
+//         data: {
+//           labels: [
+//             '08:00','09:00','10:00','11:00','12:00',
+//             '13:00','14:00','15:00','16:00','17:00','18:00'
+//           ],
+//           datasets: [
+//             {
+//               label: 'Male',
+//               data: [180,182,185,188,195,198,192,200,205,202,210],
+//               borderColor: '#7fb6b2',
+//               backgroundColor: 'rgba(127,182,178,0.12)',
+//               tension: 0.4,
+//               fill: true
+//             },
+//             {
+//               label: 'Female',
+//               data: [135,138,140,142,147,149,145,150,152,150,158],
+//               borderColor: '#bfe5e1',
+//               backgroundColor: 'rgba(191,229,225,0.18)',
+//               tension: 0.4,
+//               fill: true
+//             }
+//           ]
+//         },
+// options: {
+//   responsive: true,
+//   plugins: {
+//     legend: {
+//       position: 'top',
+//       align: 'end'
+//     },
+//     tooltip: {
+//       enabled: true
+//     },
+//     zoom: {
+//       zoom: {
+//         wheel: { enabled: true },
+//         pinch: { enabled: true },
+//         mode: 'x'
+//       },
+//       pan: {
+//         enabled: true,
+//         mode: 'x'
+//       }
+//     }
+//   },
+//   scales: {
+//     x: {
+//       grid: { color: '#eef2f3' }
+//     },
+//     y: {
+//       beginAtZero: true,
+//       grid: { color: '#eef2f3' }
+//     }
+//   }
+// },  
+
+// plugins: [liveLinePlugin]
+
+//       }
+//     );
+//   }
+
+renderDemographicsLineChart() {
+  if (!this.demographicsLineCanvas) return;
+
+  this.demographicsLineChart?.destroy();
+
+  const ctx = this.demographicsLineCanvas.nativeElement.getContext('2d');
+  if (!ctx) return;
+
+  // 1. Create Gradients for both Male and Female lines
+  const maleGradient = ctx.createLinearGradient(0, 0, 0, 300);
+  maleGradient.addColorStop(0, 'rgba(127,182,178,0.3)');
+  maleGradient.addColorStop(1, 'rgba(127,182,178,0)');
+
+  const femaleGradient = ctx.createLinearGradient(0, 0, 0, 300);
+  femaleGradient.addColorStop(0, 'rgba(191,229,225,0.3)');
+  femaleGradient.addColorStop(1, 'rgba(191,229,225,0)');
+
+  this.demographicsLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+        '08:00', '09:00', '10:00', '11:00', '12:00',
+        '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'
+      ],
+      datasets: [
+        {
+          label: 'Male',
+          data: [180, 182, 185, 188, 195, 198, 192, 200, 205, 202, 210],
+          borderColor: '#7fb6b2',
+          borderWidth: 3,
+          backgroundColor: maleGradient,
+          fill: true,
+          tension: 0.6, // Matching occupancy smooth curve
+          cubicInterpolationMode: 'monotone',
+          pointRadius: 0, // Hide points like occupancy chart
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: '#ffffff',
+          pointHoverBorderColor: '#7fb6b2',
+          pointHoverBorderWidth: 2,
+          spanGaps: true
         },
-options: {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-      align: 'end'
+        {
+          label: 'Female',
+          data: [135, 138, 140, 142, 147, 149, 145, 150, 152, 150, 158],
+          borderColor: '#bfe5e1',
+          borderWidth: 3,
+          backgroundColor: femaleGradient,
+          fill: true,
+          tension: 0.6, // Matching occupancy smooth curve
+          cubicInterpolationMode: 'monotone',
+          pointRadius: 0,
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: '#ffffff',
+          pointHoverBorderColor: '#bfe5e1',
+          pointHoverBorderWidth: 2,
+          spanGaps: true
+        }
+      ]
     },
-    tooltip: {
-      enabled: true
-    },
-    zoom: {
-      zoom: {
-        wheel: { enabled: true },
-        pinch: { enabled: true },
-        mode: 'x'
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: {
+        duration: 900,
+        easing: 'easeOutQuart'
       },
-      pan: {
-        enabled: true,
-        mode: 'x'
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      plugins: {
+        legend: {
+          display: true, // Kept true so you can distinguish Male/Female
+          position: 'top',
+          align: 'end',
+          labels: { boxWidth: 12, usePointStyle: true }
+        },
+        tooltip: {
+          enabled: true,
+          mode: 'index',
+          intersect: false
+        },
+        zoom: {
+          zoom: {
+            wheel: { enabled: true },
+            pinch: { enabled: true },
+            mode: 'x'
+          },
+          pan: {
+            enabled: true,
+            mode: 'x'
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: '#e5e7eb' },
+          border: { display: false, dash: [4, 4] },
+          ticks: { color: '#6b7280' },
+          title: {
+            display: true,
+            text: 'Time',
+            color: '#111827',
+            font: { weight: 600 }
+          }
+        },
+        y: {
+          beginAtZero: false, // Adjusted to match occupancy style
+          grid: { color: '#e5e7eb' },
+          border: { display: false, dash: [4, 4] },
+          ticks: { color: '#6b7280' },
+          title: {
+            display: true,
+            text: 'Count',
+            color: '#111827',
+            font: { weight: 600 }
+          }
+        }
       }
-    }
-  },
-  scales: {
-    x: {
-      grid: { color: '#eef2f3' }
     },
-    y: {
-      beginAtZero: true,
-      grid: { color: '#eef2f3' }
-    }
-  }
-},  
-
-plugins: [liveLinePlugin]
-
-      }
-    );
-  }
+    // Adding the specific plugins you used in Occupancy
+    plugins: [liveLinePlugin, hoverLinePlugin]
+  });
+}
 
   
   loadFootfallByHour() {
